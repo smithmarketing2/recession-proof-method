@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recession Proof Affiliate Method Bundle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: #0f0f0f;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, #0f0f0f 0%, #1a1a2e 100%);
+        }
+        
+        .hero-label {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero h1 span {
+            color: #818cf8;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-hook {
+            color: #6366f1;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        /* Video Container */
+        .video-section {
+            margin: 2rem 0;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+        }
+        
+        /* CTA Button */
+        .cta-section {
+            margin-top: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.5);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:active::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-note {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-dark {
+            background: #0f0f0f;
+        }
+        
+        .section-light {
+            background: #1a1a2e;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        /* Offer Stack */
+        .value-section {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .value-list {
+            text-align: left;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        
+        .value-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            color: #d1d5db;
+        }
+        
+        .value-item:last-child {
+            border-bottom: none;
+        }
+        
+        .total-value {
+            font-size: 1.25rem;
+            color: #6b7280;
+            text-decoration: line-through;
+            margin-top: 1.5rem;
+        }
+        
+        .your-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0.5rem 0;
+        }
+        
+        .savings {
+            color: #10b981;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        /* Guarantee Box */
+        .guarantee-box {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .guarantee-box h3 {
+            color: #34d399;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .guarantee-box p {
+            color: #9ca3af;
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+        
+        .final-cta p {
+            color: #9ca3af;
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .urgency-text {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .value-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .your-price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-label">47-Page Action Plan for Beginners</div>
+            <h1>The Recession-Proof Affiliate System That Works<br><span>Even When the Economy Doesn't</span></h1>
+            <p class="hero-subtitle">A complete step-by-step bundle for beginners who want to build a reliable affiliate income stream—without paid ads, prior experience, or guessing what actually converts in 2025.</p>
+            <p class="hero-hook">Watch this now to see the exact method complete beginners are using to generate their first affiliate commissions (even in uncertain markets)</p>
+            
+            <!-- Video -->
+            <div class="video-section">
+                <div class="video-container">
+                    <iframe src="https://media.publit.io/file/2f34e77c-bf64-4daa-959a-7737d11076c1-1.html" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <a href="#offer" class="cta-button">Get Instant Access — $27</a>
+                <p class="cta-note">30-Day Money-Back Guarantee • Instant Digital Delivery</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Offer Stack -->
+    <section class="section section-light" id="offer">
+        <div class="container">
+            <div class="value-section">
+                <h2>Here's Everything You're Getting</h2>
+                <div class="value-list">
+                    <div class="value-item">
+                        <span>Core Training</span>
+                        <span>$97</span>
+                    </div>
+                    <div class="value-item">
+                        <span>Crisis-Proof Niche Blueprint</span>
+                        <span>$47</span>
+                    </div>
+                    <div class="value-item">
+                        <span>Affiliate Funnel Templates Pack</span>
+                        <span>$37</span>
+                    </div>
+                    <div class="value-item">
+                        <span>Emergency Cash Flow Fast-Start Guide</span>
+                        <span>$27</span>
+                    </div>
+                    <div class="value-item">
+                        <span>Recession-Proof Content Calendar</span>
+                        <span>$19</span>
+                    </div>
+                    <div class="value-item">
+                        <span>Affiliate Offer Rolodex</span>
+                        <span>$17</span>
+                    </div>
+                    <div class="value-item">
+                        <span>Private Support Community</span>
+                        <span>$15</span>
+                    </div>
+                </div>
+                <p class="total-value">Total Value: $259</p>
+                <p class="your-price">$27</p>
+                <p class="savings">You Save $232 (90% Off)</p>
+                <a href="#buy" class="cta-button" style="margin-top: 1.5rem;">Get Instant Access</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Guarantee -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="guarantee-box">
+                <h3>30-Day "Try It Risk-Free" Guarantee</h3>
+                <p>Here's my promise to you: <strong>Download the Recession Proof Affiliate Method Bundle, go through the training, and if you don't feel confident about your path to your first affiliate commission within 30 days, I'll refund every penny.</strong></p>
+                <p style="margin-top: 1rem;">No hoops to jump through. No questions asked. Just send me an email and your refund is processed within 24 hours.</p>
+                <p style="margin-top: 1rem; color: #34d399; font-weight: 600;">Your only risk is doing nothing.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="section section-light final-cta" id="buy">
+        <div class="container">
+            <h2>Ready to Build Your Recession-Proof Income?</h2>
+            <p>Every day you wait is another day without commissions. Another day of wondering "what if." Another day of watching others succeed while you stay stuck.</p>
+            <p class="urgency-text">The economy doesn't control your income—you do.</p>
+            <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" class="cta-button" style="font-size: 1.25rem; padding: 1.5rem 4rem;">YES! Give Me Instant Access for $27 →</a>
+            <p style="margin-top: 1.5rem; color: #6b7280; font-size: 0.875rem;">🔒 Secure Checkout • 30-Day Money-Back Guarantee • Instant Download</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Recession Proof Affiliate Method. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
