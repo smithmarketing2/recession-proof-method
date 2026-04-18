@@ -291,6 +291,95 @@
             margin-bottom: 2rem;
         }
 
+        /* Countdown Timer */
+        .countdown-container {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .countdown-label {
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 70px;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .countdown-unit {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+        }
+
+        /* Limited Spots */
+        .limited-spots {
+            background: rgba(245, 158, 11, 0.1);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .limited-spots i {
+            color: #f59e0b;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .limited-spots h4 {
+            color: #f59e0b;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .spots-left {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ef4444;
+        }
+
+        .progress-bar-spots {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            height: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #ef4444, #f59e0b);
+            height: 100%;
+            width: 15%;
+            transition: width 0.3s ease;
+        }
+
         /* Trust Badges */
         .trust-badges {
             display: flex;
@@ -367,6 +456,36 @@
                 </div>
             </div>
             
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-label"><i class="fas fa-clock"></i> Limited Time Offer Ends In:</div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">23</div>
+                        <div class="countdown-unit">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">59</div>
+                        <div class="countdown-unit">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">59</div>
+                        <div class="countdown-unit">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Limited Spots -->
+            <div class="limited-spots">
+                <i class="fas fa-fire"></i>
+                <h4>Hurry! Only <span class="spots-left">17</span> Spots Left</h4>
+                <p style="color: #9ca3af; font-size: 0.875rem;">At this special launch price</p>
+                <div class="progress-bar-spots">
+                    <div class="progress-fill"></div>
+                </div>
+                <p style="color: #f59e0b; font-size: 0.875rem; font-weight: 600;"><i class="fas fa-chart-line"></i> 83% of spots already claimed</p>
+            </div>
+
             <div class="trust-badges">
                 <div class="trust-badge"><i class="fas fa-lock"></i> SSL Secured</div>
                 <div class="trust-badge"><i class="fas fa-shield-alt"></i> 30-Day Guarantee</div>
@@ -461,6 +580,36 @@
             const scrolled = (winScroll / height) * 100;
             document.getElementById('progressBar').style.width = scrolled + '%';
         });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Random spots decrement
+        setInterval(() => {
+            const spotsElement = document.querySelector('.spots-left');
+            let spots = parseInt(spotsElement.textContent);
+            if (spots > 3 && Math.random() > 0.7) {
+                spots--;
+                spotsElement.textContent = spots;
+            }
+        }, 30000); // Update every 30 seconds
     </script>
 </body>
 </html>
